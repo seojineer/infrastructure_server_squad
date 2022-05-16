@@ -7,8 +7,8 @@ basedir="$(readlink -f "$(dirname $0)")"
 tmpdir="$basedir"/tmp
 datadir="$tmpdir"/data
 hostport=5000
-#dockerimgname=nexelldocker/squad:production
-dockerimgname=nexelldocker/squad:2019.09
+#dockerimgname=seojikim/squad:production
+dockerimgname=seojikim/squad:2019.09
 mkdir -p "$datadir"
 
 exec docker run \
@@ -16,4 +16,5 @@ exec docker run \
   --publish=${hostport}:5000 \
   --volume="$basedir":/app \
   --rm \
+  --name squad \
   -it ${dockerimgname} "$@"
